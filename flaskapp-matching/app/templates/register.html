@@ -1,0 +1,33 @@
+
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<section id="fh5co-projects"　class="js-fullheight" style="background-image: url({{ url_for('static', filename='images/s_kyoto-Asagiribashi-l.jpg') }});" data-next="yes">
+	<div class="container">
+		<div class="row">
+			<div class="fh5co-left-position">
+				<div class="col-md-5 col-sm-7 col-xxs-10 animate-box">
+				<div style="background-color: #ffffff;position">
+				
+					<div class="fh5co-text">
+					<h1>Join us!</h1>
+					</div>
+
+
+    			{{ form.hidden_tag() }}
+    			{{ wtf.quick_form(form) }}
+    			
+				</div>
+				</div>
+			</div>					
+		</div>
+	</div>
+</section>
+
+
+
+{% endblock %}

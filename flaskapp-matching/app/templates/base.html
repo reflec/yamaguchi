@@ -1,0 +1,199 @@
+{% block doc -%}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html{% block html_attribs %}{% endblock html_attribs %}>
+{%- block html %}
+  <head>
+    {%- block head %}
+    <title>{% block title %}{{title|default}}{% endblock title %}</title>
+
+    {%- block metas %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Trip &mdash; Personal interpreter for travelers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+    <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+    <meta name="author" content="FREEHTML5.CO" />
+
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+    {%- endblock metas %}
+
+    {%- block styles %}
+
+   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,600,400italic,700' rel='stylesheet' type='text/css'>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+    <!-- Flexslider -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flexslider.css') }}">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/icomoon.css') }}">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/backgroundimage.css') }}">
+
+
+    <!-- Styleswitcher ( This style is for demo purposes only, you may delete this anytime. ) -->
+    <link rel="stylesheet" id="theme-switch" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- End demo purposes only -->
+
+
+
+
+
+    {%- endblock styles %}
+
+    {%- block headscripts %}
+
+        <!-- Modernizr JS -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/modernizr-2.6.2.min.js') }}"></script>
+
+
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="{{ url_for('static', filename='js/respond.min.js') }}"></script>
+    <![endif]-->
+    {%- endblock headscripts %}
+
+
+
+    {%- endblock head %}
+  </head>
+
+  <body{% block body_attribs %}{% endblock body_attribs %}>
+    {% block body -%}
+    {% block navbar %}
+        <!-- Loader -->
+    <div class="fh5co-loader"></div>
+
+    <div id="fh5co-page">
+        <section id="fh5co-header">
+
+            <div class="container">
+                  <nav role="navigation">
+                    <ul class="pull-left left-menu">
+                        <li><a href="{{ url_for('login') }}" ><font color="red">About</font></li>
+                        <li><a href="{{ url_for('login') }}"><font color="red">Tour</font></a></li>
+                        <li><a href="{{ url_for('login') }}"><font color="red">Pricing</font></a></li>
+                    </ul>
+                    <h1 id="fh5co-logo"><a href="{{ url_for('login') }}" ><span>Japan for you</span></a></h1>
+                    <ul class="pull-right right-menu">
+                        {% if current_user.is_authenticated %}
+                        <li><a href="{{ url_for('user', nickname=g.user.nickname) }}">{{ _('Your Profile') }}</a></li>
+                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                        {% else %}
+                        <li><a href="{{ url_for('login') }}">Login</a></li>
+                        <li class="fh5co-cta-btn"><a href="{{ url_for('register') }}">Sign up</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+
+        </section>
+        <!-- #fh5co-header -->
+
+
+    {%- endblock navbar %}
+
+
+    {% block content -%}
+    {%- endblock content %}
+
+
+    {% block scripts %}
+    <!-- jQuery -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <!-- jQuery Easing -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.easing.1.3.js') }}"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- Waypoints -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.waypoints.min.js') }}"></script>
+
+    <!-- Flexslider -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.flexslider-min.js') }}"></script>
+
+    <!-- Magnific Popup -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/magnific-popup-options.js') }}"></script>
+
+
+    <script src="{{ url_for('static', filename='js/jquery.style.switcher.js') }}"></script>
+    <script>
+        $(function(){
+            $('#colour-variations ul').styleSwitcher({
+                defaultThemeId: 'theme-switch',
+                hasPreview: false,
+                cookie: {
+                    expires: 30,
+                    isManagingLoad: true
+                }
+            }); 
+            $('.option-toggle').click(function() {
+                $('#colour-variations').toggleClass('sleep');
+            });
+        });
+    </script>
+
+
+
+
+    <!-- Main JS (Do not remove) -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <!--
+    INFO:
+    jQuery Cookie for Demo Purposes Only.
+    The code below is to toggle the layout to boxed or wide
+    -->
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.cookie.js') }}"></script>
+    <script>
+        $(function(){
+
+            if ( $.cookie('layoutCookie') != '' ) {
+                $('body').addClass($.cookie('layoutCookie'));
+            }
+
+            $('a[data-layout="boxed"]').click(function(event){
+                event.preventDefault();
+                $.cookie('layoutCookie', 'boxed', { expires: 7, path: '/'});
+                $('body').addClass($.cookie('layoutCookie')); // the value is boxed.
+            });
+
+            $('a[data-layout="wide"]').click(function(event){
+                event.preventDefault();
+                $('body').removeClass($.cookie('layoutCookie')); // the value is boxed.
+                $.removeCookie('layoutCookie', { path: '/' }); // remove the value of our cookie 'layoutCookie'
+            });
+        });
+    </script>
+    {%- endblock scripts %}
+    {%- endblock body %}
+  </body>
+{%- endblock html %}
+</html>
+{% endblock doc -%}

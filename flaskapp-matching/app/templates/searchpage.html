@@ -1,0 +1,32 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<section id="fh5co-projects">
+  <div class="container">
+  <div class="row">
+  <div class="fh5co-left-position">
+  <div class="col-md-5 col-sm-7 col-xxs-10 animate-box">
+
+
+    <div class="fh5co-text">
+    <h1>Let's search!</h1>
+    </div>
+
+      <form style="display: inline;" action="{{ url_for('search') }}" method="post" name="search">
+      {{ g.search_form.hidden_tag() }}
+      {{ g.search_form.search(size=20) }}
+      <input type="submit" value="Search">
+      </form>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

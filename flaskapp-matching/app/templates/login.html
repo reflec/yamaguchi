@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<section id="fh5co-projects"　class="js-fullheight" style="background-image: url({{ url_for('static', filename='images/wakayama-Momijidani_Teien_Garden-s.jpg') }});" data-next="yes">
+	<div class="container">
+	<div class="row">
+	<div class="fh5co-left-position">
+	<div class="col-md-5 col-sm-7 col-xxs-10 animate-box">
+	<div style="background-color: #ffffff;position">
+	<div class="fh5co-text">
+	<h1>Login!</h1>
+	</div>
+    {{ form.hidden_tag() }}
+    {{ wtf.quick_form(form) }}
+    <br>
+    <p>New user? <a href="{{ url_for('register') }}">Click here to register</a>.</p>
+			</div>
+			</div>
+			</div>					
+			</div>
+			</div>
+		</section>
+
+{% endblock %}
