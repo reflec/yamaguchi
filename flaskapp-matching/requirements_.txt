@@ -1,5 +1,5 @@
 
-Babel==2.4.0
+Babel==2.9.1
 click==6.7
 coverage==4.4.1
 decorator==4.0.11
